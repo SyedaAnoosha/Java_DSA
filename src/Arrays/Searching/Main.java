@@ -26,7 +26,6 @@ public class Main {
         }
         else{
             System.out.println("Key: \""+key2+"\"  found at index: ["+index[0]+","+index[1]+"]");
-
         }
     }
 }
