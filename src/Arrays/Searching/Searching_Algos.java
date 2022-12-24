@@ -19,30 +19,29 @@ public class Searching_Algos{
         }
         return new int[]{-1,-1};
     }
-    public void BinarySearch1D(int[] A, int key, int first, int last){
-        int mid = (first + last)/2;
+    public int BinarySearch1D(int[] A, int key){
+        int first = 0;
+        int last = A.length-1;
+        int mid = first + (last - first)/2;
         while( first <= last ){
+
             if (A[mid] == key ){
-                System.out.println(key+" is found at index: " + mid);
-                break;
-            }
-            if ( A[mid] < key ){
+                return mid;
+            } else if ( A[mid] < key ){
                 first = mid + 1;
-            }else{
+            } else {
                 last = mid - 1;
             }
             mid = (first + last)/2;
         }
-        if ( first > last ){
-            System.out.println(key+" is not found!");
-        }
+        return -1;
     }
-    public void BinarySearch2D(int[][] B,int key){
+    public int[] BinarySearch2D(int[][] B,int key){
         int row = 0;
         int col = B[row].length - 1;
         while (row < B.length && col >= 0) {
             if (B[row][col] == key) {
-                System.out.println(key+ " found at: "+row +":"+ col);
+                return new int[]{row, col};
             }
             if (B[row][col] < key) {
                 row++;
@@ -51,6 +50,6 @@ public class Searching_Algos{
                 col--;
             }
         }
-
+        return new int[]{-1,-1};
     }
 }
