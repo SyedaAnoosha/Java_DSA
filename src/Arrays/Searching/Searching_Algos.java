@@ -1,24 +1,23 @@
 package Arrays.Searching;
 
 public class Searching_Algos{
-    public void LinearSearch1D(int[] A, int key){
+    public int LinearSearch1D(int[] A, int key){
         for (int i = 0; i < A.length; i++) {
             if(key==A[i]){
-                System.out.println(key+ " found at: "+i);
+                return i;
             }
         }
-
+        return -1;
     }
-    public void LinearSearch2D(int[][] A, int key){
+    public int[] LinearSearch2D(int[][] A, int key){
         for (int i = 0; i < A.length; i++) {
             for (int j = 0; j < A[i].length; j++) {
                 if (key == A[i][j]) {
-                    System.out.println(key+" found at index: " + i + ":" + j);
-                    return;
+                    return new int[]{i,j};
                 }
             }
         }
-        System.out.println(key+" not found");
+        return new int[]{-1,-1};
     }
     public void BinarySearch1D(int[] A, int key, int first, int last){
         int mid = (first + last)/2;
