@@ -1,4 +1,4 @@
-package Sorting;
+package Arrays.Sorting;
 
 public class Main {
     public static void main(String[] args) {
