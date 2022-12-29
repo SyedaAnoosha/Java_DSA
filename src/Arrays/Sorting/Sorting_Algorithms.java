@@ -2,10 +2,9 @@ package Arrays.Sorting;
 
 import java.util.Arrays;
 
-public class Sorting_Algos {
+public class Sorting_Algorithms {
     public void Selection_Sort(int[] arr){
-
-        //In every iteration the minimum number and if there exists any we replace it with the
+        //In every iteration of j the minimum number is decided and if there exists any we replace it with the ith element
         int min,temp;
         int n = arr.length;
         for (int i = 0; i < n-1; i++) {
