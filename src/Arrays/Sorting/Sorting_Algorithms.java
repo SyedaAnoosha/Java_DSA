@@ -70,8 +70,36 @@ public class Sorting_Algorithms {
         j = temp;
     }
     int partition(int[] A, int low, int high){
+        //selection of pivot element
         int pivot=A[low];
-        int pivIndex = 0;
+
+        //right place of pivot element
+        int count = 0;
+        for (int i = low + 1; i < high ; i++) {
+            if(A[i]<pivot){
+                count++;
+            }
+        }
+        //right index of pivot element -> pivIndex
+        int pivIndex = count + low;
+        swap(A,pivIndex,count);
+        int s = low, e = high;
+
+        // for partitioning (  <pivot | pivot | >pivot  )
+        while(s<pivIndex && e>pivIndex){
+            if(A[s]<=pivot){  //checking for elements lesser than pivot
+                s++;
+            }
+
+            if(A[e]>=pivot){ //checking for elements greater than pivot
+                e--;
+            }
+
+            if(s<pivIndex && e>pivIndex){
+                swap(A,A[s++],A[e--]);
+            }
+
+        }
         return pivIndex;
     }
     public void QuickSort1D(int[] A, int low, int high){
