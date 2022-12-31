@@ -1,6 +1,6 @@
 package Arrays.Searching;
 
-public class Searching_Algos{
+public class Searching_Algorithms {
     public int LinearSearch1D(int[] A, int key){
         for (int i = 0; i < A.length; i++) {
             if(key==A[i]){

@@ -12,7 +12,7 @@ public class Main {
         int key1=8;
         int key2=5;
 
-        Searching_Algos S = new Searching_Algos();
+        Searching_Algorithms S = new Searching_Algorithms();
 
         int index1= S.LinearSearch1D(arr1D,key1);
         int[] indexL = S.LinearSearch2D(arr2D,key2);
