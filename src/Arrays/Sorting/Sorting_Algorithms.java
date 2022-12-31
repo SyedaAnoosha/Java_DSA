@@ -100,6 +100,7 @@ public class Sorting_Algorithms {
             }
 
         }
+
         return pivIndex;
     }
     public void QuickSort1D(int[] A, int low, int high){
