@@ -1,7 +1,4 @@
 package Arrays.Sorting;
-
-import javax.swing.*;
-import java.security.cert.PolicyQualifierInfo;
 import java.util.Arrays;
 
 public class Sorting_Algorithms {
@@ -24,9 +21,9 @@ public class Sorting_Algorithms {
         System.out.println(Arrays.toString(arr));
     }
 
-    //ith largest element is bubbled up at the right end in every ith iteration
-    //i -> for rounds
-    //j -> for comparing
+    // ith largest element is bubbled up at the right end in every ith iteration
+    // i -> for rounds
+    // j -> for comparing
     public void Bubble_sort(int[] arr){
         int temp;
         for (int i = 0 ; i < arr.length - 1 ; i++) { // i=1 to i<n or i=0 to i<=n-1
@@ -57,36 +54,32 @@ public class Sorting_Algorithms {
         System.out.println(Arrays.toString(arr));
     }
 
-    // QuickSort is a Divide and Conquer algorithm. It picks an element as a pivot and partitions the given array around the picked pivot.
-    // There are many versions of quickSort that pick pivot in different ways.
-    //first element as a pivot.
-    //last element as a pivot
-    //Pick a random element as a pivot.
-    //Pick median as the pivot.
+    // QuickSort is a Divide and Conquer algorithm.
 
-    void swap(int[] A, int i, int j){
-        int temp = i;
-        i = j;
-        j = temp;
-    }
     int partition(int[] A, int low, int high){
+
         //selection of pivot element
         int pivot=A[low];
 
         //right place of pivot element
         int count = 0;
-        for (int i = low + 1; i < high ; i++) {
-            if(A[i]<pivot){
+
+        // for checking how many elements are lesser than pivot element
+        for (int i = low + 1; i <= high ; i++) {
+            if(A[i]<=pivot){
                 count++;
             }
         }
         //right index of pivot element -> pivIndex
         int pivIndex = count + low;
-        swap(A,pivIndex,count);
-        int s = low, e = high;
+        int temp = A[pivIndex];
+        A[pivIndex] = A[low];
+        A[low] = temp;
+
+        int s = low, e  = high;
 
         // for partitioning (  <pivot | pivot | >pivot  )
-        while(s<pivIndex && e>pivIndex){
+        while(s < pivIndex && e > pivIndex){
             if(A[s]<=pivot){  //checking for elements lesser than pivot
                 s++;
             }
@@ -95,10 +88,11 @@ public class Sorting_Algorithms {
                 e--;
             }
 
-            if(s<pivIndex && e>pivIndex){
-                swap(A,A[s++],A[e--]);
+            if(s < pivIndex && e > pivIndex){
+                int loc = A[s];
+                A[s] = A[e];
+                A[e] = loc;
             }
-
         }
 
         return pivIndex;
@@ -123,7 +117,5 @@ public class Sorting_Algorithms {
            QuickSort1D(A,pivot_index+1,high);
         }
 
-
-        System.out.println(Arrays.toString(A));
     }
 }

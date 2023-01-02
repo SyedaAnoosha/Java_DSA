@@ -1,4 +1,5 @@
 package Arrays.Sorting;
+import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
@@ -8,5 +9,7 @@ public class Main {
          S.Bubble_sort(arr);
          S.Insertion_sort(arr);*/
         S.QuickSort1D(arr,0, arr.length-1);
+        System.out.println(Arrays.toString(arr));
+
     }
 }
