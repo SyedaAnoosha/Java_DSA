@@ -127,7 +127,31 @@ public class node {
         }
         return q;
     }
-        
+    public static int findLastElement( node start ){
+        node cur = start ;
+        while(cur != null){
+            cur = cur.next ;
+        }
+        return cur.data;
+    }
+    public static int findMaxElement( node start ){
+        int max = start.data;
+        for (node p = start.next ; p != null ; p = p.next){
+            if(p.data > max){
+                max = p.data;
+            }
+        }
+        return max;
+    }
+    public static int findMinElement( node start ){
+        int min = start.data;
+        for (node p = start.next ; p != null ; p = p.next){
+            if(p.data< min){
+                min = p.data;
+            }
+        }
+        return min;
+    }
     public static node replace( node list, int pos, int num ){
         int counter = 0;
         node p = list;
@@ -142,24 +166,25 @@ public class node {
         return list;
     }
     public static void main(String[] args) {
-        node n1 = new node(1);
-        node start = n1;
-        node n2 = new node(2);
-        start.next=n2;
-        node n3 = new node(3);
-        n2.next=n3;
-        node n4 = new node(4);
-        n3.next=n4;
-        node n5 = new node(5);
-        n4.next=n5;
-        node n6 = new node(6);
-        n5.next=n6;
-        node n7 = new node(7);
-        n6.next=n7;
-        node n8 = new node(8);
-        n7.next=n8;
-        node n9 = new node(9);
-        n8.next=n9;
+
+//        node n1 = new node(5);
+//        node start = n1;
+//        node n2 = new node(2);
+//        start.next=n2;
+//        node n3 = new node(3);
+//        n2.next=n3;
+//        node n4 = new node(4);
+//        n3.next=n4;
+//        node n5 = new node(10);
+//        n4.next=n5;
+//        node n6 = new node(6);
+//        n5.next=n6;
+//        node n7 = new node(7);
+//        n6.next=n7;
+//        node n8 = new node(8);
+//        n7.next=n8;
+//        node n9 = new node(9);
+//        n8.next=n9;
 
 
 //        traverse(start);
@@ -192,6 +217,33 @@ public class node {
 //        traverse(reverse);
 //        System.out.println();
 //
+//        replace(start,3,10);
+//        traverse(start);
+//        System.out.println();
+//
+//        System.out.println(findMinElement(start));
+//        System.out.println();
+//
+//        System.out.println(findMaxElement(start));
+//
+//
+//        node head = new node(11);
+//        node cur = head;
+//        cur.next = new node(22);
+//        cur = cur.next;
+//        cur.next = new node(33);
+//        cur = cur.next;
+//
+//        for(int i = 0 ; i <  3 ; i++ ){
+//            cur.next = new node(head.data) ;
+//            cur = cur.next ;
+//            cur.next = new node(head.next.data);
+//            cur = cur.next ;
+//            cur.next = new node(head.next.next.data);
+//            cur = cur.next ;
+//        }
+//
+//        traverse(head);
 
     }
 }
