@@ -19,12 +19,10 @@ public class node {
         }
         return sum;
     }
-    public static int size(node start) {
-        node temp = start;
-        int count = 0;
-        while (temp != null) {
+    public static int size(node head) {
+        int count = 1 ;
+        for( node start= head ; start != null ; start=start.next){
             count++;
-            temp = temp.next;
         }
         return count;
     }
@@ -60,13 +58,30 @@ public class node {
         addTo.next=prev.next;
         prev.next=addTo;
     }
+    public static void insertAtMiddle( node head , int data ){
+        node newNode = new node(data);
+
+        node p = head;
+        node q = head;
+
+        while (q != null && q.next != null) {
+            q= q.next.next;
+            p = p.next;
+
+        }
+        newNode.next = p.next;
+        p.next = newNode;
+
+    }
+
     public static int findMiddleElement(node head) {
         node p = head;
         node q = head;
 
         while (q != null && q.next != null) {
+            q= q.next.next;
             p = p.next; 
-            q= q.next.next; 
+
         }
 
         return p.data;
@@ -167,31 +182,37 @@ public class node {
     }
     public static void main(String[] args) {
 
-//        node n1 = new node(5);
-//        node start = n1;
-//        node n2 = new node(2);
-//        start.next=n2;
-//        node n3 = new node(3);
-//        n2.next=n3;
-//        node n4 = new node(4);
-//        n3.next=n4;
-//        node n5 = new node(10);
-//        n4.next=n5;
-//        node n6 = new node(6);
-//        n5.next=n6;
-//        node n7 = new node(7);
-//        n6.next=n7;
-//        node n8 = new node(8);
-//        n7.next=n8;
-//        node n9 = new node(9);
-//        n8.next=n9;
+        node n1 = new node(5);
+        node start = n1;
+        node n2 = new node(2);
+        start.next=n2;
+        node n3 = new node(3);
+        n2.next=n3;
+        node n4 = new node(4);
+        n3.next=n4;
+        node n5 = new node(10);
+        n4.next=n5;
+        node n6 = new node(6);
+        n5.next=n6;
+        node n7 = new node(7);
+        n6.next=n7;
+        node n8 = new node(8);
+        n7.next=n8;
+        node n9 = new node(9);
+        n8.next=n9;
 
 
 //        traverse(start);
 //        System.out.println();
 //
-//        node first = insert_at_First(7,start);
+//        int size = size(start);
+//        System.out.println(size);
+//
+//        node first = insert_at_First(10,start);
 //        traverse(first);
+//        System.out.println();
+//
+//        System.out.println(findMiddleElement(start));
 //        System.out.println();
 //
 //        insert(4,start,1);
@@ -208,9 +229,6 @@ public class node {
 //
 //        node copy = copy(start);
 //        traverse(copy);
-//        System.out.println();
-//
-//        System.out.println(findMiddleElement(start));
 //        System.out.println();
 //
 //        node reverse = reverse(start);
