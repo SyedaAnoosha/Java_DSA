@@ -17,8 +17,30 @@ public class ArrayStack implements Stack{
         }
         return a[size-1];
     }
+    public String toString() {
+        StringBuilder s = new StringBuilder("[");
+        for (int i = 0; i < size-1; i++) {
+            s.append(a[i]).append(", ");
+        }
+        s.append(a[size-1] +"]");
+        System.out.println(s);
+        return "";
+    }
+
+    public Object popFromLast(){
+        Object obj = a[0];
+        a[0] = null;
+        for (int i = 0; i < size-1; i++) {
+            a[i]=a[i+1];
+        }
+        size--;
+        return obj;
+    }
 
     public Object pop() {
+        if (size==0){
+            throw new EmptyStackException();
+        }
         Object obj = a[--size];
         a[size] = null;
         return obj;
