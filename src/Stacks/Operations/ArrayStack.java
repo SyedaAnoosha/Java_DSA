@@ -59,6 +59,20 @@ public class ArrayStack implements Stack{
         return s.toString();
     }
 
+    public Object peekMiddle() {
+        if (size == 0) {
+            throw new java.util.EmptyStackException();
+        }
+        return a[size/2];
+    }
+
+    public Object peekBottom() {
+        if (size == 0) {
+            throw new java.util.EmptyStackException();
+        }
+        return a[0];
+    }
+
     public Object peekSecondLast() {
         if (size < 2) {
             throw new NoSuchElementException();
@@ -93,13 +107,6 @@ public class ArrayStack implements Stack{
         return obj;
     }
 
-    public Object bottom() {
-        if (size == 0) {
-            throw new java.util.EmptyStackException();
-        }
-        return a[0];
-    }
-
 
     private void resize(){
         Object[] newArr = a;
@@ -120,12 +127,14 @@ public class ArrayStack implements Stack{
     }
 
     public void reverse() {
-        for (int i = 0; i < size / 2; i++) {
-            Object e = a[i];
-            a[i] = a[size - 1 - i];
-            a[size - 1 - i] = e;
+        if (size == 0) {
+            throw new java.util.EmptyStackException();
         }
 
+        for (int i = 0, j = size-1; i < size/2 ; i++, j--) {
+            Object temp = this.a[i];
+            this.a[i] = this.a[j];
+            this.a[j] = temp ;
+        }
     }
-
 }

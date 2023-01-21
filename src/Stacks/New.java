@@ -9,6 +9,7 @@ interface Stack{
 
 
 }
+
 class ArrayStack implements Stack{
     ArrayStack stack=new ArrayStack();
     private int size;

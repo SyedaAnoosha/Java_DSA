@@ -73,6 +73,7 @@ public class StackMethods {
             stack = stack.concat("]");
             return stack;
         }
+
         public Object peekLast(){
             return a[0];
         }
@@ -99,17 +100,19 @@ public class StackMethods {
         stack.push(3.1);
         stack.push("Rise of the Tomb Raider");
         System.out.println(stack);
+/*
 
         // pop top element
         stack.pop();
         System.out.println(stack);
+*/
 
         // pop bottom element in stack
         stack.popFromLast();
         System.out.println(stack);
 
 
-        ArrayStack stack2 = new ArrayStack(5);
+       /* ArrayStack stack2 = new ArrayStack(5);
         stack2.push("Asad");
         stack2.push(5);
         stack2.push(3.1);
@@ -145,7 +148,7 @@ public class StackMethods {
         // Reversing Stack 2
         stack2.reverseStack();
         System.out.println(stack2);
-
+*/
     }    // end of main() method
 
 }        // end of program

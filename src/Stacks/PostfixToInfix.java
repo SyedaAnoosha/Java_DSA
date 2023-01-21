@@ -15,6 +15,7 @@ public class PostfixToInfix {
             }
         }
     }
+
     public static boolean isAnOperator(String s){
         return (s.length()==1 && "ASMD".contains(s));
     }
