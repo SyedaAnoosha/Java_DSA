@@ -3,14 +3,15 @@ import java.util.*;
 
 public class ArrayStack implements Stack{
     private int size = 0;
-
-    private Object a[];
+    private Object[] a;
 
     public ArrayStack(int cap){
         a = new Object[cap];
     }
 
     public void push(Object obj) {
+
+        //overflow
         if (size == a.length) {
             resize();
         }
@@ -18,9 +19,12 @@ public class ArrayStack implements Stack{
     }
 
     public Object pop() {
+
+        //underflow
         if (size==0){
             throw new EmptyStackException();
         }
+
         Object obj = a[--size];
         a[size] = null;
         return obj;
@@ -33,18 +37,28 @@ public class ArrayStack implements Stack{
         return a[size-1];
     }
 
-    public Object size() {
+    public int size() {
         return size;
     }
 
     public boolean isEmpty() {
-        if(size==0){
-            return true;
+        return size == 0;
+    }
+
+    public boolean search( Object obj){
+        if(size == 0 ){
+            throw new EmptyStackException();
+        }
+        for (int i = 0; i < this.a.length; i++) {
+            if(obj==a[i]){
+                return true;
+            }
         }
         return false;
     }
 
     public String toString() {
+
         StringBuilder s = new StringBuilder("[");
         int i =0;
         while(i<size){
@@ -57,18 +71,19 @@ public class ArrayStack implements Stack{
         }
         s.append("]");
         return s.toString();
+
     }
 
     public Object peekMiddle() {
         if (size == 0) {
-            throw new java.util.EmptyStackException();
+            throw new EmptyStackException();
         }
         return a[size/2];
     }
 
     public Object peekBottom() {
         if (size == 0) {
-            throw new java.util.EmptyStackException();
+            throw new EmptyStackException();
         }
         return a[0];
     }
@@ -81,9 +96,11 @@ public class ArrayStack implements Stack{
     }
 
     public Object popSecondLast(){
+
         if(size<2){
             throw new NoSuchElementException();
         }
+
         Object obj = a[size-2];
         a[size-2] = a[size-1];
         a[size-1] = null;
@@ -105,8 +122,8 @@ public class ArrayStack implements Stack{
         }
         size--;
         return obj;
-    }
 
+    }
 
     private void resize(){
         Object[] newArr = a;
@@ -127,8 +144,9 @@ public class ArrayStack implements Stack{
     }
 
     public void reverse() {
+
         if (size == 0) {
-            throw new java.util.EmptyStackException();
+            throw new EmptyStackException();
         }
 
         for (int i = 0, j = size-1; i < size/2 ; i++, j--) {
@@ -136,5 +154,18 @@ public class ArrayStack implements Stack{
             this.a[i] = this.a[j];
             this.a[j] = temp ;
         }
+
     }
+
+    public ArrayStack merge( ArrayStack A, ArrayStack B){
+        ArrayStack C = new ArrayStack(A.size() + B.size());
+        while(!A.isEmpty()){
+            C.push(A.popBottom());
+        }
+        while(!B.isEmpty()){
+            C.push(B.popBottom());
+        }
+        return C;
+    }
+
 }

@@ -58,6 +58,51 @@ public class node {
         addTo.next=prev.next;
         prev.next=addTo;
     }
+
+    public static int getSmallest( node head ){
+        node start = head ;
+        int max = 0;
+        while( start != null ){
+            if(start.data < max){
+                max = start.data;
+            }
+            start = start.next;
+        }
+        return max;
+    }
+
+    public static int getLargest( node head ){
+        node start = head ;
+        int max = 0;
+        while( start != null ){
+            if(start.data > max){
+                max = start.data;
+            }
+            start = start.next;
+        }
+        return max;
+    }
+
+    public static void lastToFirst( node head ){
+
+        node last = head;
+        node secLast = null;
+
+
+        if (head == null || head.next == null)
+            return;
+
+        while (last.next != null) {
+            secLast = last;
+            last = last.next;
+        }
+
+        secLast.next = null;
+        last.next = head;
+        head = last;
+
+    }
+
     public static void insertAtMiddle( node head , int data ){
         node newNode = new node(data);
 
@@ -201,7 +246,13 @@ public class node {
         node n9 = new node(9);
         n8.next=n9;
 
-
+        System.out.println(getLargest(start));
+        System.out.println(getSmallest(start));
+//        traverse(start);
+//        System.out.println();
+//
+//        lastToFirst(start);
+//
 //        traverse(start);
 //        System.out.println();
 //
