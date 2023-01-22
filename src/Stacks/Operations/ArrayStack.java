@@ -112,18 +112,13 @@ public class ArrayStack implements Stack{
         return mid;
     }
 
-    public Object popSecondLast(){
-
-        if(size<2){
-            throw new NoSuchElementException();
+    public ArrayStack copyStack( ArrayStack stack ){
+        stack = new ArrayStack(this.size);
+        while(!this.isEmpty()){
+            stack.push(this.peek());
         }
 
-        Object obj = a[size-2];
-        a[size-2] = a[size-1];
-        a[size-1] = null;
-        size--;
-        return obj;
-
+        return stack;
     }
 
     public Object popBottom(){
@@ -137,6 +132,20 @@ public class ArrayStack implements Stack{
         for (int i = 0; i < size-1; i++) {
             a[i]=a[i+1];
         }
+        size--;
+        return obj;
+
+    }
+
+    public Object popSecondLast(){
+
+        if(size<2){
+            throw new NoSuchElementException();
+        }
+
+        Object obj = a[size-2];
+        a[size-2] = a[size-1];
+        a[size-1] = null;
         size--;
         return obj;
 
