@@ -95,6 +95,23 @@ public class ArrayStack implements Stack{
         return a[size - 2];
     }
 
+    public Object popMiddle(){
+
+        if (size == 0) {
+            throw new EmptyStackException();
+        }
+        Object mid = peekMiddle();
+        // 4           >2
+        for (int i = size-1 ; i > size / 2 ; i--) {
+            Object temp = a[i-1];
+            a[i-1] = a[i];
+        }
+
+        a[size-1] = null;
+        size--;
+        return mid;
+    }
+
     public Object popSecondLast(){
 
         if(size<2){
