@@ -1,4 +1,4 @@
-package Arrays.Searching;
+package Array.Searching;
 
 public class Searching_Algorithms {
     public int LinearSearch1D(int[] A, int key){

@@ -1,16 +1,14 @@
 package Stacks.Operations;
-public class RPN {
+public class RPN  {
     public boolean isAnOperator(String s){
         return (s.length()==1&& "ASMD".indexOf(s)>=0);
-
-
     }
     public RPN(String[] args){
 
 
         ArrayStack stack=new ArrayStack(args.length);
 
-        for (int i=0;i<args.length;i++){//
+        for (int i=0;i<args.length;i++){
             String input=args[i];
             if (isAnOperator(input)){
 
@@ -35,7 +33,7 @@ public class RPN {
             z=x*y;
         else if (op.equals("D"))
             z=x/y;
-        System.out.println(x+" "+op+" "+y+"="+z);
+        System.out.println(x+" "+op+" "+y+" = "+z);
         return z;
     }
 

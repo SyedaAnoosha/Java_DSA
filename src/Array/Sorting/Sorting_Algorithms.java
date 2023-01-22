@@ -1,5 +1,120 @@
-package Arrays.Sorting;
-import java.util.Arrays;
+package Array.Sorting;
+
+public class Sorting_Algorithms {
+
+    public void BubbleSort(int[] a){
+        int temp;
+        for (int i = 0; i < a.length-1; i++) {
+            for (int j = 0; j < a.length-1-i; j++) {
+                if(a[j]>a[j+1]){
+                    temp = a[j];
+                    a[j] = a[j+1];
+                    a[j+1] = temp;
+                }
+            }
+        }
+    }
+
+    public void SelectionSort( int[]a){
+        int min,temp;
+        for (int i = 0; i < a.length-1 ; i++) {
+            min=i;
+            for (int j = i+1; j < a.length ; j++) {
+                if(a[j]<a[min]){
+                    min=j;
+                }
+            }
+            temp=a[min];
+            a[min] = a[i];
+            a[i]=temp;
+        }
+    }
+
+    public void InsertionSort(int[] a){
+        int temp;
+        for (int i = 1; i < a.length ; i++) {
+            temp=a[i];
+            int j = i-1;
+            while( j >=0 && a[j]>temp){
+                a[j+1]= a[j];
+                j--;
+            }
+            a[j+1]=temp;
+        }
+    }
+
+    public void QuickSort(int[] a, int p, int q){
+        if(p<q){
+            int m = partition(a,p,q);
+            QuickSort(a,p,m-1);
+            QuickSort(a,m+1,q);
+        }
+    }
+
+    private int partition(int[] a, int p, int q) {
+        int piv = a[p], i=p, j=q;
+        while(i<j){
+            while(i<j && a[--j] >= piv);
+            if(j>i){
+                a[i]=a[j];
+            }
+            while(i<j && a[++i] <= piv);
+            if(j>i){
+                a[j]=a[i];
+            }
+        }
+        a[j]=piv;
+        return j;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 
 public class Sorting_Algorithms {
     public void Selection_Sort(int[] arr){
@@ -56,7 +171,8 @@ public class Sorting_Algorithms {
 
     // QuickSort is a Divide and Conquer algorithm.
 
-    int partition(int[] A, int low, int high){
+   */
+/* int partition(int[] A, int low, int high){
 
         //selection of pivot element
         int pivot=A[low];
@@ -70,6 +186,7 @@ public class Sorting_Algorithms {
                 count++;
             }
         }
+
         //right index of pivot element -> pivIndex
         int pivIndex = count + low;
         int temp = A[pivIndex];
@@ -96,8 +213,43 @@ public class Sorting_Algorithms {
         }
 
         return pivIndex;
+    }*//*
+
+
+
+    private int partition(int[] a, int p, int q) {
+        int pivot = a[p], i = p, j = q; // steps 1-2
+        while (i < j) { // step 3
+            while (i < j && a[--j] >= pivot) ; // step 4
+            if (i < j) {
+                a[i] = a[j]; // step 5
+            }
+            while (i < j && a[++i] <= pivot) ; // step 6
+            if (i < j) {
+                a[j] = a[i]; // step 7
+            }
+        }
+        a[j] = pivot; // step 8
+        return j;
     }
-    public void QuickSort1D(int[] A, int low, int high){
+
+
+    public void QuickSort(int[] a, int p, int q) {
+
+       if (p<q) {
+           int m = partition(a, p, q); // step 2
+           QuickSort(a, p, m); // step 4
+           QuickSort(a, m+1, q); // step 5
+       }
+
+       return;
+
+    }
+
+
+
+    */
+/*public void QuickSort1D(int[] A, int low, int high){
 
         //low is 0
         //high is A.length-1
@@ -117,5 +269,7 @@ public class Sorting_Algorithms {
            QuickSort1D(A,pivot_index+1,high);
         }
 
-    }
+    }*//*
+
 }
+*/
