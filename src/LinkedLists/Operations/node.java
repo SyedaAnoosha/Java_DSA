@@ -43,6 +43,40 @@ public class node {
         start=add;
         return start;
     }
+    public void deleteStart(node head){
+        if (head == null){
+            return;
+        }
+        head=head.next;
+    }
+    public void deleteEnd( node head ){
+        if (head == null){
+            return;
+        }
+        if(head.next==null){
+            head=null;
+            return;
+        }
+
+        node prev = head;
+        while (prev.next.next != null)
+            prev = prev.next;
+
+        prev.next = null;
+
+    }
+    public void deleteMiddle(node head) {
+        node p = head;
+        node q = head;
+        node prev = null;
+        while (q != null && q.next != null) {
+            q= q.next.next;
+            prev=p;
+            p = p.next;
+        }
+        prev.next=p.next;
+
+    }
 
     public static void insert (int data , node head , int pos ){
 
@@ -211,6 +245,24 @@ public class node {
             }
         }
         return min;
+    }
+
+    public static node concat( node head1, node head2){
+        node temp=null;
+        if (head1==null) {
+            return head2;
+        }
+
+        if (head2==null){
+            return head1;
+        }
+
+        temp=head1;
+        while (temp.next!=null)
+            temp=temp.next;
+        temp.next=head2;
+        return(head1);
+
     }
     public static node replace( node list, int pos, int num ){
         int counter = 0;
