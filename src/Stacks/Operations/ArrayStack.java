@@ -83,7 +83,7 @@ public class ArrayStack implements Stack{
 
     public Object peekBottom() {
         if (size == 0) {
-            throw new EmptyStackException();
+             throw new EmptyStackException();
         }
         return a[0];
     }
@@ -100,25 +100,14 @@ public class ArrayStack implements Stack{
         if (size == 0) {
             throw new EmptyStackException();
         }
-        Object mid = peekMiddle();
-        // 4           >2
-        for (int i = size-1 ; i > size / 2 ; i--) {
-            Object temp = a[i-1];
-            a[i-1] = a[i];
-        }
+        Object mid = a[size/2];
+        a[size/2]=null;
 
-        a[size-1] = null;
+        for (int i = size / 2 ; i < size-1 ; i++ ) {
+            a[i]=a[i+1];
+        }
         size--;
         return mid;
-    }
-
-    public ArrayStack copyStack( ArrayStack stack ){
-        stack = new ArrayStack(this.size);
-        while(!this.isEmpty()){
-            stack.push(this.peek());
-        }
-
-        return stack;
     }
 
     public Object popBottom(){
@@ -181,6 +170,12 @@ public class ArrayStack implements Stack{
             this.a[j] = temp ;
         }
 
+    }
+    public void merge(ArrayStack A){
+
+        while (!this.isEmpty()){
+            A.push(this.popBottom());
+        }
     }
 
     public ArrayStack merge( ArrayStack A, ArrayStack B){

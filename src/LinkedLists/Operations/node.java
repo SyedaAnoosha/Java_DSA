@@ -43,13 +43,13 @@ public class node {
         start=add;
         return start;
     }
-    public void deleteStart(node head){
+    public static void deleteStart(node head){
         if (head == null){
             return;
         }
         head=head.next;
     }
-    public void deleteEnd( node head ){
+    public static void deleteEnd( node head ){
         if (head == null){
             return;
         }
@@ -65,7 +65,7 @@ public class node {
         prev.next = null;
 
     }
-    public void deleteMiddle(node head) {
+    public static void deleteMiddle(node head) {
         node p = head;
         node q = head;
         node prev = null;
@@ -74,7 +74,9 @@ public class node {
             prev=p;
             p = p.next;
         }
-        prev.next=p.next;
+        if (prev != null) {
+            prev.next=p.next;
+        }
 
     }
 
@@ -117,7 +119,7 @@ public class node {
         return max;
     }
 
-    public static void lastToFirst( node head ){
+    /*public static void lastToFirst( node head ){
 
         node last = head;
         node secLast = null;
@@ -135,10 +137,19 @@ public class node {
         last.next = head;
         head = last;
 
-    }
+    }*/
 
     public static void insertAtMiddle( node head , int data ){
         node newNode = new node(data);
+        if(head==null) return;
+        if(head.next==null){
+            head.next=newNode;
+            return;
+        }
+        if(head.next.next==null){
+            newNode.next=head.next;
+            head.next = newNode;
+        }
 
         node p = head;
         node q = head;
@@ -166,33 +177,36 @@ public class node {
         return p.data;
     }
 
-    public static node reverse(node node) {
-        node prev = null;
-        node current = node;
-        node next = null;
-        while (current != null) {
-            next = current.next;
-            current.next = prev;
-            prev = current;
-            current = next;
-        }
-        node = prev;
-        return node;
+    public static node reverse(node head) {
+       node prev= null;
+       node cur = head;
+       node next = null;
+
+       while(cur!=null){
+           next=cur.next;
+           cur.next=prev;
+           prev=cur;
+           cur=next;
+       }
+       head=prev;
+       return head;
     }
 
     public static void insert_at_last (int data , node head  ){
 
         node addTo = new node(data);
         if(head==null){
-            addTo.next=head;
-            head=addTo;
+            addTo.next=null;
             return;
         }
         node last = head;
+
         while(last.next!=null){
             last=last.next;
         }
+
         last.next=addTo;
+        addTo.next=null;
     }
     public static void delete(node start , int pos){
         if(pos==0){
@@ -203,27 +217,29 @@ public class node {
             start=null;
             return;
         }
+
         node prev= start;
         for (int i = 0; i < pos-1; i++) {
             prev= prev.next;
         }
-        prev.next=prev.next.next;
+
+        prev.next=prev.next.next; //
     }
     public static node copy( node head ){
-        node p = head ;
+        node p =head;
         node q = new node(p.data);
         node temp = q;
-        p = p.next;
-        while( p!= null) {
-            temp.next = new node(p.data);
-            p = p.next;
-            temp= temp.next;
+        p=p.next;
+        while(p != null){
+            temp.next= new node(p.data);
+            p=p.next;
+            temp=temp.next;
         }
         return q;
     }
     public static int findLastElement( node start ){
         node cur = start ;
-        while(cur != null){
+        while(cur.next != null){
             cur = cur.next ;
         }
         return cur.data;
@@ -258,8 +274,9 @@ public class node {
         }
 
         temp=head1;
-        while (temp.next!=null)
-            temp=temp.next;
+        while (temp.next!=null) {
+            temp = temp.next;
+        }
         temp.next=head2;
         return(head1);
 
