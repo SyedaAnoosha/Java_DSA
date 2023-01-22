@@ -1,4 +1,4 @@
-package Arrays.Operations;
+package Array.Operations;
 import java.util.Arrays;
 
 class Practice{
