@@ -281,9 +281,9 @@ public class node {
         return(head1);
 
     }
-    public static node replace( node list, int pos, int num ){
+    public static node replace( node head, int pos, int num ){
         int counter = 0;
-        node p = list;
+        node p = head;
         while (p.next!=null) {
             if (counter == pos) {
                 p.data = num;
@@ -292,7 +292,7 @@ public class node {
             p = p.next;
             counter++;
         }
-        return list;
+        return head;
     }
     public static void main(String[] args) {
 

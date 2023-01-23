@@ -96,10 +96,10 @@ public class ArrayStack implements Stack{
     }
 
     public Object popMiddle(){
-
-        if (size == 0) {
-            throw new EmptyStackException();
-        }
+//
+//        if (size == 0) {
+//            throw new EmptyStackException();
+//        }
         Object mid = a[size/2];
         a[size/2]=null;
 

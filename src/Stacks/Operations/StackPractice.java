@@ -17,8 +17,8 @@ public class StackPractice {
         stack1.push(40);
         stack1.push(25);
 
-        stack.merge(stack1);
-        System.out.println(stack1);
+//        stack.merge(stack1);
+//        System.out.println(stack1);
 
         System.out.println(stack.popMiddle());
         System.out.println(stack);

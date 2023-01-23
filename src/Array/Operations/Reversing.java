@@ -3,14 +3,13 @@ import java.util.Arrays;
 
 class Practice{
     public int[] reverse(int[] arr){
-        int start = 0, end = arr.length-1, temp;
-        while(start<=end){
-            temp=arr[start];
-            arr[start]=arr[end];
-            arr[end]=temp;
-            start++;
-            end--;
+        int temp;
+        for(int i = 0, j = arr.length-1 ; i<arr.length/2 ; i++, j--){
+            temp=arr[i];
+            arr[i] = arr[j];
+            arr[j]=temp;
         }
+
         return arr;
     }
 
