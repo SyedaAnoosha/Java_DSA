@@ -1,8 +1,6 @@
 package Stacks.Operations;
 
-import java.util.Arrays;
-
-public class StackPractice {
+public class ArrayStackPractice {
     public static void main(String[] args) {
         ArrayStack stack = new ArrayStack(5);
         stack.push(1);
@@ -11,16 +9,16 @@ public class StackPractice {
         stack.push(4);
         stack.push(5);
         stack.push(6);
-        ArrayStack stack1 = new ArrayStack(2);
-        stack1.push(20);
-        stack1.push(30);
-        stack1.push(40);
-        stack1.push(25);
-
-//        stack.merge(stack1);
-//        System.out.println(stack1);
-
-        System.out.println(stack.popMiddle());
+//        ArrayStack stack1 = new ArrayStack(2);
+//        stack1.push(20);
+//        stack1.push(30);
+//        stack1.push(40);
+//        stack1.push(25);
+//
+////        stack.merge(stack1);
+////        System.out.println(stack1);
+//
+//        System.out.println(stack.popMiddle());
         System.out.println(stack);
 //        System.out.println(stack.popMiddle());
 //        System.out.println(stack);

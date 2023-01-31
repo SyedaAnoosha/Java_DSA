@@ -1,5 +1,7 @@
 package Stacks.Operations;
 
+import LinkedLists.Operations.node;
+
 public class LinkedStack implements Stack {
 
     private static class Node {
@@ -50,5 +52,35 @@ public class LinkedStack implements Stack {
 
     public boolean isEmpty() {
         return size==0 ;
+    }
+
+    public Object peekSecondLast(){
+        if (size == 0) {
+            throw new java.util.EmptyStackException();
+        }
+        return top.next.object;
+    }
+
+    public Object findLastElement(){
+        Node cur = top ;
+        while(cur.next != null){
+            cur = cur.next ;
+        }
+        return cur.object;
+    }
+    public String toString() {
+
+        Node start = top;
+        StringBuilder s = new StringBuilder("[");
+        while(start!=null){
+            s.append(start.object);
+            if( start.next != null ){
+                s.append(", ");
+            }
+            start=start.next;
+        }
+        s.append("]");
+        return s.toString();
+
     }
 }
