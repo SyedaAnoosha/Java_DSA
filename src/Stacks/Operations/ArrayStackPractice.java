@@ -9,6 +9,7 @@ public class ArrayStackPractice {
         stack.push(4);
         stack.push(5);
         stack.push(6);
+        System.out.println(stack.toLinkedStack().toString());
 //        ArrayStack stack1 = new ArrayStack(2);
 //        stack1.push(20);
 //        stack1.push(30);
@@ -19,7 +20,7 @@ public class ArrayStackPractice {
 ////        System.out.println(stack1);
 //
 //        System.out.println(stack.popMiddle());
-        System.out.println(stack);
+ //       System.out.println(stack);
 //        System.out.println(stack.popMiddle());
 //        System.out.println(stack);
 

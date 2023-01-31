@@ -188,5 +188,12 @@ public class ArrayStack implements Stack{
         }
         return C;
     }
+    public LinkedStack toLinkedStack(){
+        LinkedStack stack = new LinkedStack();
+        for (int i = size-1; i >= 0; i--) {
+            stack.push(this.a[i]);
+        }
+        return stack;
+    }
 
 }

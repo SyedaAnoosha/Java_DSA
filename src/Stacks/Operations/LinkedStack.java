@@ -2,6 +2,8 @@ package Stacks.Operations;
 
 import LinkedLists.Operations.node;
 
+import java.util.EmptyStackException;
+
 public class LinkedStack implements Stack {
 
     private static class Node {
@@ -61,15 +63,29 @@ public class LinkedStack implements Stack {
         return top.next.object;
     }
 
-    public Object findLastElement(){
+    public void reverse() {
+
+        if (size == 0) {
+            throw new EmptyStackException();
+        }
+        Node start = top;
+        Node back = null, forw;
+        while(start!=null){
+            forw=start.next;
+            start.next=back;
+            back=start;
+            start=forw;
+        }
+        top=back;
+    }
+    public Object peekBottom(){
         Node cur = top ;
-        while(cur.next != null){
+        while(cur.next!= null){
             cur = cur.next ;
         }
         return cur.object;
     }
     public String toString() {
-
         Node start = top;
         StringBuilder s = new StringBuilder("[");
         while(start!=null){
@@ -81,6 +97,27 @@ public class LinkedStack implements Stack {
         }
         s.append("]");
         return s.toString();
+    }
+    public ArrayStack toArrayStack(){
+        ArrayStack stack = new ArrayStack(size);
+        Node head = top;
+        while(head != null ){
+            stack.push(head.object);
+            head = head.next;
+        }
+        return stack;
+    }
+    public boolean equals(LinkedStack stack) {
+        if(this.size != stack.size)
+            return false;
 
+        while(top!=null){
+            if(this.top.object!=stack.top.object){
+                return false;
+            }
+            top = top.next;
+        }
+
+        return true;
     }
 }
