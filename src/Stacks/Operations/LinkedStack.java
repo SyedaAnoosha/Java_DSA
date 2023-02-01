@@ -1,7 +1,4 @@
 package Stacks.Operations;
-
-import LinkedLists.Operations.node;
-
 import java.util.EmptyStackException;
 
 public class LinkedStack implements Stack {

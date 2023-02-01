@@ -145,7 +145,6 @@ public class ArrayStack implements Stack{
         a = new Object[ 2 * newArr.length];
         System.arraycopy(newArr,0, a,0, size);
     }
-
     public boolean equals(ArrayStack stack){
         if(this.size != stack.size) {
             return false;
@@ -157,27 +156,21 @@ public class ArrayStack implements Stack{
         }
         return true;
     }
-
     public void reverse() {
-
         if (size == 0) {
             throw new EmptyStackException();
         }
-
         for (int i = 0, j = size-1; i < size/2 ; i++, j--) {
             Object temp = this.a[i];
             this.a[i] = this.a[j];
             this.a[j] = temp ;
         }
-
     }
     public void merge(ArrayStack A){
-
         while (!this.isEmpty()){
             A.push(this.popBottom());
         }
     }
-
     public ArrayStack merge( ArrayStack A, ArrayStack B){
         ArrayStack C = new ArrayStack(A.size() + B.size());
         while(!A.isEmpty()){
@@ -195,5 +188,4 @@ public class ArrayStack implements Stack{
         }
         return stack;
     }
-
 }

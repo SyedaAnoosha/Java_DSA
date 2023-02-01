@@ -16,14 +16,13 @@ public class ArrayStackPractice {
 //        stack1.push(40);
 //        stack1.push(25);
 //
-////        stack.merge(stack1);
-////        System.out.println(stack1);
+//        stack.merge(stack1);
+//        System.out.println(stack1);
 //
 //        System.out.println(stack.popMiddle());
- //       System.out.println(stack);
+//        System.out.println(stack);
 //        System.out.println(stack.popMiddle());
 //        System.out.println(stack);
-
 //        System.out.println(stack.search(6));
 //        System.out.println(stack.search(3));
 

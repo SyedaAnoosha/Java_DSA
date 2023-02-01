@@ -223,7 +223,7 @@ public class node {
             prev= prev.next;
         }
 
-        prev.next=prev.next.next; //
+        prev.next=prev.next.next;
     }
     public static node copy( node head ){
         node p =head;
