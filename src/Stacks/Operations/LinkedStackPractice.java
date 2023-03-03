@@ -18,7 +18,7 @@ public class LinkedStackPractice {
         L1.push("blue");
         L1.push("yellow");
         L1.push("green");
-        L1.push("black");
+        L1.push("white");
         System.out.println(L1);
 
         System.out.println(L1.equals(L));

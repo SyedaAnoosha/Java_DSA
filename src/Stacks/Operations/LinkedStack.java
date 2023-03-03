@@ -1,24 +1,6 @@
 package Stacks.Operations;
 import java.util.EmptyStackException;
-
 public class LinkedStack implements Stack {
-
-    private static class Node {
-        Object object;
-        Node next;
-
-        public Node(Object object) {
-            this.object = object;
-            this.next = null;
-        }
-
-        public Node(Object object, Node next) {
-            this.object = object;
-            this.next = next;
-        }
-
-    }
-
     private Node top;
     private int size;
 
@@ -33,7 +15,6 @@ public class LinkedStack implements Stack {
         if (size == 0) {
             throw new java.util.EmptyStackException();
         }
-
         Object oldTop = top.object;
         top=top.next;
         --size;
@@ -61,7 +42,6 @@ public class LinkedStack implements Stack {
     }
 
     public void reverse() {
-
         if (size == 0) {
             throw new EmptyStackException();
         }
@@ -105,16 +85,28 @@ public class LinkedStack implements Stack {
         return stack;
     }
     public boolean equals(LinkedStack stack) {
-        if(this.size != stack.size)
+        Node a = this.top, b = stack.top;
+        if(this.size != stack.size){
             return false;
-
+        }
         while(top!=null){
-            if(this.top.object!=stack.top.object){
+            if(a.object!=b.object){
                 return false;
             }
             top = top.next;
         }
-
         return true;
+    }
+    private static class Node {
+        Object object;
+        Node next;
+        public Node(Object object) {
+            this.object = object;
+            this.next = null;
+        }
+        public Node(Object object, Node next) {
+            this.object = object;
+            this.next = next;
+        }
     }
 }

@@ -166,11 +166,13 @@ public class ArrayStack implements Stack{
             this.a[j] = temp ;
         }
     }
+
     public void merge(ArrayStack A){
         while (!this.isEmpty()){
             A.push(this.popBottom());
         }
     }
+
     public ArrayStack merge( ArrayStack A, ArrayStack B){
         ArrayStack C = new ArrayStack(A.size() + B.size());
         while(!A.isEmpty()){
@@ -181,6 +183,7 @@ public class ArrayStack implements Stack{
         }
         return C;
     }
+
     public LinkedStack toLinkedStack(){
         LinkedStack stack = new LinkedStack();
         for (int i = size-1; i >= 0; i--) {
@@ -188,4 +191,5 @@ public class ArrayStack implements Stack{
         }
         return stack;
     }
+
 }
