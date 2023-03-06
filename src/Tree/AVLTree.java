@@ -39,12 +39,12 @@ public class AVLTree {
         else {
             right = right.grow(key);
         }
-        rebalance();
+        reBalance();
         height = 1+ Math.max(left.height,right.height);
         return this;
     }
 
-    private void rebalance() {
+    private void reBalance() {
         if(right.height > left.height+1){ // simple rotate
             if(right.left.height > right.right.height) {  //compound rotate
                 right.rotateRight();
