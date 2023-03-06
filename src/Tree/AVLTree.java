@@ -39,9 +39,24 @@ public class AVLTree {
         else {
             right = right.grow(key);
         }
-        //rebalance();
+        rebalance();
         height = 1+ Math.max(left.height,right.height);
         return this;
+    }
+
+    private void rebalance() {
+        if(right.height > left.height+1){ // simple rotate
+            if(right.left.height > right.right.height) {  //compound rotate
+                right.rotateRight();
+            }
+            rotateLeft();
+        }
+        if (left.height > right.height+1){
+            if(left.right.height > left.left.height) {
+                left.rotateLeft();
+            }
+            rotateRight();
+        }
     }
 
     public int size(){
@@ -52,6 +67,17 @@ public class AVLTree {
     public String toString() {
         if (this == NIL) return "";
         return left.toString() + " " + key + " " + right.toString();
+    }
+    private void rotateLeft(){
+        left = new AVLTree(key,left,right.left);
+        key = right.key;
+        right = right.right;
+    }
+
+    private void rotateRight(){
+        right = new AVLTree(key,left.right,right);
+        key = left.key;
+        left = left.left;
     }
 
 }
