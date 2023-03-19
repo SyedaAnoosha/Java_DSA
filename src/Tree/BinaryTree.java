@@ -6,7 +6,6 @@ public class BinaryTree {
     Object root;
     BinaryTree left, right;
 
-
     public BinaryTree(Object root) {
         this.root = root;
     }
@@ -30,10 +29,7 @@ public class BinaryTree {
     }
 
     public boolean isLeaf(){
-        if(this.left == null && this.right == null){
-            return true;
-        }
-        return false;
+        return this.left == null && this.right == null;
     }
 
     public String preOrder(){
@@ -49,6 +45,7 @@ public class BinaryTree {
     }
 
     public String postOrder(){
+
         StringBuilder buf = new StringBuilder();
 
         if(this.left != null){
@@ -61,69 +58,79 @@ public class BinaryTree {
         return buf+"";
     }
 
-    public String toString() {
-        //inorder
+    public String inOrder() {
+
         StringBuilder buf = new StringBuilder();
         if(this.left != null){
-            buf.append(this.left+",");
+            buf.append(left.inOrder()+",");
         }
         buf.append(this.root);
         if(this.right != null){
-            buf.append(","+this.right);
+            buf.append(","+right.inOrder());
         }
         return buf+"";
 
     }
 
-    public int size(BinaryTree B){
-        if(B.root == null) return 0;
-        if(B.left != null && B.right != null){
-            return (size(B.left) + size(B.right) + 1);
-        } else if (B.left != null) {
-            return size(B.left) + 1;
-
-        } else if (B.right != null) {
-            return size(B.right) + 1;
-        }
-        return 1;
-    }
-
-
-    public int height(){
-        if(root == null){
-            return -1;
-        }
-        if(this.left == null && this.right == null){
+    public int size(){
+        int size = 1;
+        if (root==null){
             return 0;
         }
-        int leftB = 0, rightB = 0;
+        if (left!=null) {
+            size += left.size();
+        }
+        if (right!=null){
+            size += right.size();
+        }
+        return size;
+    }
+
+
+    public int height() {
+        if (root == null) {
+            return -1;
+        }
+        if (this.left == null && this.right == null) {
+            return 0;
+        }
+        int leftSubTree = 1, rightSubTree = 1;
+        if (left != null) {
+            leftSubTree += left.height();
+        }
+        if (right != null) {
+            rightSubTree += right.height();
+        }
+        return Math.max(leftSubTree, rightSubTree);
+    }
+
+
+    public boolean search (Object obj){
+        boolean leftSubTree = false, rightSubTree = false;
+        if(root ==  null){
+            return false;
+        }
+        if(root.equals(obj)){
+            return true;
+        }
         if(left != null){
-            leftB = 1 + left.height();
+            leftSubTree = left.search(obj);
         }
         if(right != null){
-            rightB = 1 + right.height();
+            rightSubTree = right.search(obj);
         }
-        return Math.max(leftB, rightB);
-    }
-    
-    //search
-    public boolean search (Object obj){
-        String store = this.toString();
-        for (int i = 0; i < store.length() ; i++) {
-            if(store == obj){
-                return true;
-            }
+        if(leftSubTree || rightSubTree){
+            return true;
         }
-
         return false;
-
     }
+
     public boolean isFull(BinaryTree root){
         int sizeB = ((int) Math.pow(2, root.height() + 1)) - 1;
-        return sizeB == root.size(root);
+        return sizeB == root.size();
     }
 
-    public int leaves(){
+    public int numberOfLeaves(){
         if(this.root == null) return 0;
         if(isFull(this)){
             int leaf = (int) Math.pow(2,this.height());
@@ -133,4 +140,3 @@ public class BinaryTree {
         return -1;
     }
 }
-
