@@ -1,4 +1,4 @@
-package Queue.Operations;
+package Queue.LinkedQueue;
 
 public class LinkedQueuePractice {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package Queue.Operations;
+package Queue.LinkedQueue;
 
 import java.util.EmptyStackException;
 public class LinkedQueue implements Queue {
@@ -25,12 +25,12 @@ public class LinkedQueue implements Queue {
         head.prev = head.prev.next;
         ++size;
 
-        /*Node newNode = new Node(obj);
-        newNode.next=head;
-        newNode.prev=head.prev;
-        head.prev.next=newNode;
-        head.prev=head.prev.next;
-        ++size;*/
+//        Node newNode = new Node(obj);
+//        newNode.next=head;
+//        newNode.prev=head.prev;
+//        head.prev.next=newNode;
+//        head.prev=head.prev.next;
+//        ++size;
 
     }
 

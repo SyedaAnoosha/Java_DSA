@@ -11,6 +11,7 @@ public class BinaryTreePractice {
         BinaryTree BTR = new BinaryTree("C",b4,b3);
         BinaryTree BT = new BinaryTree("A",BTL,BTR);
         System.out.println("Size: "+BT.size());
+        System.out.println(BT.search("N"));
 //        System.out.println("isFull: " + BT.isFull(BT));
 //        System.out.println(BT.search("o"));
 //        System.out.println(BT.numberOfLeaves());

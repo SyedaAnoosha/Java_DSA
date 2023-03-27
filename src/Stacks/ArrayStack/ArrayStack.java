@@ -1,7 +1,10 @@
-package Stacks.Operations;
+package Stacks.ArrayStack;
+import Stacks.LinkedStack.LinkedStack;
+import Stacks.Stack;
+
 import java.util.*;
 
-public class ArrayStack implements Stack{
+public class ArrayStack implements Stack {
     private int size = 0;
     private Object[] a;
 

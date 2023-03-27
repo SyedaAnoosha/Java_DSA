@@ -1,4 +1,5 @@
-package Stacks.Operations;
+package Stacks.ArrayStack;
+
 public class RPN  {
     public boolean isAnOperator(String s){
         return (s.length()==1&& "ASMD".indexOf(s)>=0);

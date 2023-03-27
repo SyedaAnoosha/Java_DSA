@@ -1,4 +1,4 @@
-package Stacks.Operations;
+package Stacks;
 
 public interface Stack {
     public Object peek();

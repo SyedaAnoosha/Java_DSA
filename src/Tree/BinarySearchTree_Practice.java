@@ -11,8 +11,10 @@ public class BinarySearchTree_Practice {
         BST.insert(17);
         BST.insert(16);
         BST.insert(1);
-        System.out.println(BST.search(45));
-        System.out.println(BST.search(1));
+
+        BST.search(1);
+        BST.search(89);
+
         BST.postOrder();
         BST.preOrder();
         BST.inOrder();

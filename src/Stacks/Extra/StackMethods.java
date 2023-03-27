@@ -1,4 +1,4 @@
-package Stacks;
+package Stacks.Extra;
 public class StackMethods {
     static class ArrayStack{
 

@@ -72,7 +72,7 @@ public class AVLTree {
     }
 
     private void rotateLeft(){
-        left = new AVLTree(key,left,right.left);
+        left = new AVLTree(key, left, right.left);
         key = right.key;
         right = right.right;
     }
@@ -82,4 +82,5 @@ public class AVLTree {
         key = left.key;
         left = left.left;
     }
+
 }

@@ -26,8 +26,13 @@ public class BinarySearchTree {
         return root;
     }      // end of insert
 
-    public boolean search(int val){
-        return search(root, val);
+    public void search(int val){
+        if(search(root, val)){
+            System.out.println("True");
+        }
+        else{
+            System.out.println("False");
+        }
     }
     public boolean search(Node root, int val){
         if (root==null){
@@ -36,12 +41,14 @@ public class BinarySearchTree {
         if(root.val == val){
             return true;
         }
-        if (val < root.val){
+        if (root.val > val){
             return search(root.left, val);
         } else {
             return search(root.right, val);
         }
     }        // end of method search()
+
+
 
     public void inOrder(){
         inOrder(root);

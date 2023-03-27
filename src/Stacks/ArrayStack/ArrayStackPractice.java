@@ -1,4 +1,4 @@
-package Stacks.Operations;
+package Stacks.ArrayStack;
 
 public class ArrayStackPractice {
     public static void main(String[] args) {

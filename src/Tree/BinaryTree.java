@@ -72,20 +72,19 @@ public class BinaryTree {
 
     }
 
-    public int size(){
+    public int size() { // number of nodes
         int size = 1;
-        if (root==null){
+        if (root == null) {
             return 0;
         }
-        if (left!=null) {
+        if (left != null) {
             size += left.size();
         }
-        if (right!=null){
+        if (right != null) {
             size += right.size();
         }
         return size;
     }
-
 
     public int height() {
         if (root == null) {
@@ -106,7 +105,6 @@ public class BinaryTree {
 
 
     public boolean search (Object obj){
-        boolean leftSubTree = false, rightSubTree = false;
         if(root ==  null){
             return false;
         }
@@ -114,17 +112,13 @@ public class BinaryTree {
             return true;
         }
         if(left != null){
-            leftSubTree = left.search(obj);
+            left.search(obj);
         }
         if(right != null){
-            rightSubTree = right.search(obj);
-        }
-        if(leftSubTree || rightSubTree){
-            return true;
+            right.search(obj);
         }
         return false;
     }
-
     public boolean isFull(BinaryTree root){
         int sizeB = ((int) Math.pow(2, root.height() + 1)) - 1;
         return sizeB == root.size();

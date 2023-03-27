@@ -1,5 +1,4 @@
-package Stacks.Operations;
-
+package Stacks.LinkedStack;
 public class LinkedStackPractice {
     public static void main(String[] args) {
         LinkedStack L = new LinkedStack();

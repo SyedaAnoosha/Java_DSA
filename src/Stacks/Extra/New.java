@@ -1,4 +1,4 @@
-package Stacks;
+package Stacks.Extra;
 import java.util.*;
 interface Stack{
     public Object peek();

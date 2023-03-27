@@ -1,8 +1,25 @@
-package Stacks.Operations;
+package Stacks.LinkedStack;
+
+import Stacks.ArrayStack.ArrayStack;
+import Stacks.Stack;
 import java.util.EmptyStackException;
+
 public class LinkedStack implements Stack {
     private Node top;
     private int size;
+
+    private static class Node {
+        Object object;
+        Node next;
+        public Node(Object object) {
+            this.object = object;
+            this.next = null;
+        }
+        public Node(Object object, Node next) {
+            this.object = object;
+            this.next = next;
+        }
+    }
 
     public Object peek() {
         if (size == 0) {
@@ -75,20 +92,23 @@ public class LinkedStack implements Stack {
         s.append("]");
         return s.toString();
     }
-    public ArrayStack toArrayStack(){
+
+    public ArrayStack toArrayStack() {
         ArrayStack stack = new ArrayStack(size);
         Node head = top;
-        while(head != null ){
+        while (head != null) {
             stack.push(head.object);
             head = head.next;
         }
         return stack;
     }
+
     public boolean equals(LinkedStack stack) {
         Node a = this.top, b = stack.top;
         if(this.size != stack.size){
             return false;
         }
+
         while(top!=null){
             if(a.object!=b.object){
                 return false;
@@ -97,16 +117,16 @@ public class LinkedStack implements Stack {
         }
         return true;
     }
-    private static class Node {
-        Object object;
-        Node next;
-        public Node(Object object) {
-            this.object = object;
-            this.next = null;
+
+    public boolean equals(LinkedStack linkedStack, ArrayStack arrayStack){
+        if (linkedStack.size!=arrayStack.size()){
+            return false;
         }
-        public Node(Object object, Node next) {
-            this.object = object;
-            this.next = next;
+        for (int i=0; i<size; i++){
+            if (linkedStack.peek()!=arrayStack.peek()){
+                return false;
+            }
         }
+        return true;
     }
 }
