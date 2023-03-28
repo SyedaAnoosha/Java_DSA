@@ -103,11 +103,8 @@ public class HashTableClass {
     }
 
     private int nextProbe(int h, int i) {
-        return (h + i) % entries.length;
-    }
-
-    private int nextQuadProbe(int h, int i) {
-        return (h + i*i) % entries.length;
+        return (h + i) % entries.length; //linear
+        //return (h + i*i) % entries.length; // quadratic
     }
     public int hash(Object key){
         return (Math.abs(key.hashCode())) % entries.length;
