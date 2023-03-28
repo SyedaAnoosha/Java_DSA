@@ -108,6 +108,16 @@ public class BinaryTree {
         }
         return size;
     }
+    public int sumOfNodes(){
+        int sum = (Integer) this.root;
+        if (left != null) {
+            sum += left.sumOfNodes();
+        }
+        if (right != null) {
+            sum += right.sumOfNodes();
+        }
+        return sum;
+    }
 
     public int height() {
         if (root == null) {
@@ -142,14 +152,14 @@ public class BinaryTree {
         }
         return false;
     }
-    public boolean isFull(BinaryTree root){
-        int sizeB = ((int) Math.pow(2, root.height() + 1)) - 1;
-        return sizeB == root.size();
+    public boolean isFull(){
+        int sizeB = ((int) Math.pow(2, this.height() + 1)) - 1;
+        return sizeB == this.size();
     }
 
     public int numberOfLeaves(){
         if(this.root == null) return 0;
-        if(isFull(this)){
+        if(isFull()){
             int leaf = (int) Math.pow(2,this.height());
             return leaf;
         }

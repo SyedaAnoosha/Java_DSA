@@ -1,5 +1,7 @@
 package Queue.LinkedQueue;
 
+import Queue.Queue;
+
 import java.util.EmptyStackException;
 public class LinkedQueue implements Queue {
     private Node head = new Node(null);

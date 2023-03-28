@@ -3,7 +3,7 @@ package Graphs;
 public class Graph {
     int size;
     String[] vertices;
-    boolean[][] a;
+    boolean[][] a; //adjacency matrix
 
     public Graph(String[] args){
         size = args.length;
@@ -30,22 +30,27 @@ public class Graph {
       }
       StringBuffer buf =  new StringBuffer("{"+vertices[0]);
         for (int i = 1; i < size; i++) {
-            if(i == size-1){
-                buf.append(vertex(i)+"}");
-            }
             buf.append(", "+ vertex(i));
         }
-        return buf+"";
+        return buf+"}";
     }
 
     private String vertex(int i) {
-        StringBuffer buf =  new StringBuffer(vertices[i]+":");
+        StringBuffer buf =  new StringBuffer(vertices[i]+": ");
         for (int j = 0; j < size; j++) {
             if (a[i][j]){
                 buf.append(vertices[j]);
             }
         }
         return buf+"";
+    }
+
+    public static void main(String[] args) {
+        Graph g = new Graph(args);
+        g.add("A", "B");
+        g.add("A", "C");
+        g.add("B", "C");
+        System.out.println(g);
     }
 }
 

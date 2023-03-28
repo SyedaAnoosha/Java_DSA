@@ -1,4 +1,4 @@
-package Queue.LinkedQueue;
+package Queue;
 
 public interface Queue {
     public void add(Object obj);
