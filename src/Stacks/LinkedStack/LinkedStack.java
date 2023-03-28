@@ -7,7 +7,6 @@ import java.util.EmptyStackException;
 public class LinkedStack implements Stack {
     private Node top;
     private int size;
-
     private static class Node {
         Object object;
         Node next;

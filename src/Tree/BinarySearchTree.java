@@ -46,10 +46,7 @@ public class BinarySearchTree {
         } else {
             return search(root.right, val);
         }
-    }        // end of method search()
-
-
-
+    }
     public void inOrder(){
         inOrder(root);
         System.out.println();

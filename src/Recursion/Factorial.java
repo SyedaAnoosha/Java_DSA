@@ -1,31 +1,28 @@
 package Recursion;
 
-import java.util.Scanner;
-
 public class Factorial {
 
-    //recursive approach
     public static long fac(int n){
-        if(n <= 0 || n == 1) {
+        if(n == 0 || n == 1) { //base condition: no further recursive calls needed.
             return 1;
         }
         return n * fac(n-1);
     }
 
-    //loop approach
-    public static int f(int n) {
-        int f = 1;
-        for (int i = 2; i <= n; i++) {
-            f *= i;
+    public static void main(String[] args) {
+        System.out.println(fac(4));
+        long time1 = System.currentTimeMillis();
+        for (int i = 125; i <=135 ; i++) {
+            System.out.println("Factorial of " + i + " = " + fac(i));
         }
-        return f;
+        long time2 = System.currentTimeMillis();
+        System.out.println("Time is " + (time2 - time1)+ " milliseconds");
     }
 
-    public static void main(String[] args) {
-        Scanner sc =new Scanner(System.in);
-        System.out.println("Enter any number: ");
-        int n = sc.nextInt();
-        long ans = fac(n);
-        System.out.println("Factorial of " + n + " = " + ans);
-    }
+//    public static BigInteger fac(int n){
+//        if(n == 0 || n == 1) { //base condition: no further recursive calls needed.
+//            return BigInteger.ONE;
+//        }
+//        return BigInteger.valueOf(n).multiply(fac(n-1)) ;
+//    }
 }

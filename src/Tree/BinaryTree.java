@@ -1,6 +1,8 @@
 package Tree;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class BinaryTree {
     Object root;
@@ -71,6 +73,27 @@ public class BinaryTree {
         return buf+"";
 
     }
+
+    public void levelOrder() {
+
+        if (this.root == null) {
+            return;
+        }
+        Queue<BinaryTree> queue = new LinkedList<>();
+        queue.add(this);
+
+        while (!queue.isEmpty()) {
+            BinaryTree current = queue.remove();
+            System.out.print(current.getRoot() + " ");
+            if (current.getLeft() != null) {
+                queue.add(current.getLeft());
+            }
+            if (current.getRight() != null) {
+                queue.add(current.getRight());
+            }
+        }
+    }
+
 
     public int size() { // number of nodes
         int size = 1;

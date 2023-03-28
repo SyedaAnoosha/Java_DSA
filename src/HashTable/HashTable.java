@@ -110,7 +110,8 @@ public class HashTable {
     private void rehash() {
         int newCapacity = numOfBuckets * 2;
         HashNode[] newBuckets = new HashNode[newCapacity];
-        for (HashNode node : buckets) {
+        for (int i = 0; i < buckets.length; i++) {
+            HashNode node = buckets[i];
             while (node != null) {
                 HashNode next = node.next;
                 int bucketIndex = (Math.abs(node.key.hashCode())) % newCapacity;
@@ -121,6 +122,19 @@ public class HashTable {
         }
         buckets = newBuckets;
         numOfBuckets = newCapacity;
+    }
+
+    public boolean containsKey(Integer key) {
+        int bucket = getBucketIndex(key);
+        HashNode head = buckets[bucket];
+        while (head != null) {
+            if (head.key.equals(key)) {
+                System.out.println(head.val);
+                return true;
+            }
+            head = head.next;
+        }
+        return false;
     }
 
 }     // end of class HashTable

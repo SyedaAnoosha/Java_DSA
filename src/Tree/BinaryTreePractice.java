@@ -18,6 +18,7 @@ public class BinaryTreePractice {
         System.out.println(BT.postOrder());
         System.out.println(BT.preOrder());
         System.out.println(BT.inOrder());
+        BT.levelOrder();
 
 /*
         System.out.println(BT.getRoot());

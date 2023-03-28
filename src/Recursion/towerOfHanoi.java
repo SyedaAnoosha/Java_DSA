@@ -11,23 +11,21 @@ package Recursion;
  */
 
 public class towerOfHanoi {
-
-    public static void print(int n, char x, char y, char z){
-        if (n==1){
-            System.out.println(x+" -> "+z);
-        } else {
-            print(n-1, x, y, z);
-            System.out.println(x+" -> "+y);
-            print(n-1, y, z, x);
+    public static void TowerOfHanoi(int n , String source , String helper , String destination){
+        if (n == 1){
+            System.out.println("transfer disc "+n+" from "+source+" to "+destination);
+            return;
         }
-
+        TowerOfHanoi(n-1 , source , destination , helper);
+        System.out.println("transfer disc "+n+" from "+source+" to "+destination);
+        TowerOfHanoi(n-1 , helper , source , destination);
     }
     public static void main(String[] args) {
 
         int numOfTowers;
         if (args.length>0){
             numOfTowers = Integer.parseInt(args[0]);
-            print(numOfTowers, 'A', 'B', 'C');
+            TowerOfHanoi(numOfTowers, "A", "B", "C");
         }
 
     }
