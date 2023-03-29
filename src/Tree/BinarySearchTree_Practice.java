@@ -3,20 +3,36 @@ package Tree;
 public class BinarySearchTree_Practice {
     public static void main(String[] args) {
         BinarySearchTree BST = new BinarySearchTree();
-        BST.insert(5);
-        BST.insert(3);
-        BST.insert(6);
-        BST.insert(9);
-        BST.insert(10);
+        BST.insert(14);
         BST.insert(17);
+        BST.insert(11);
+        BST.insert(7);
+        BST.insert(53);
+        BST.insert(4);
+        BST.insert(13);
+        BST.insert(12);
+        BST.insert(8);
+        BST.insert(60);
+        BST.insert(19);
         BST.insert(16);
-        BST.insert(1);
+        BST.insert(20);
 
         BST.search(1);
         BST.search(89);
 
-        BST.postOrder();
-        BST.preOrder();
         BST.inOrder();
+        BST.delete(8);
+        BST.inOrder();
+        BST.delete(7);
+        BST.inOrder();
+        BST.delete(11);
+        BST.inOrder();
+        BST.delete(14);
+        BST.inOrder();
+        BST.delete(17);
+        BST.inOrder();
+
+
+
     }
 }

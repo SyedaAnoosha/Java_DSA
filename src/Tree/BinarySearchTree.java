@@ -13,7 +13,7 @@ public class BinarySearchTree {
     public void insert(int val){
         root = insert(root, val);
     }
-    public Node insert(Node root, int val){
+    private Node insert(Node root, int val){
         if (root==null){
             root = new Node(val);
             return root;
@@ -34,7 +34,7 @@ public class BinarySearchTree {
             System.out.println("False");
         }
     }
-    public boolean search(Node root, int val){
+    private boolean search(Node root, int val){
         if (root==null){
             return false;
         }
@@ -47,12 +47,58 @@ public class BinarySearchTree {
             return search(root.right, val);
         }
     }
+
+    public void delete(int val) {
+        root = delete(root, val);
+    }
+
+    private Node delete(Node root, int val) {
+        if (root == null) {
+            return null;
+        }
+
+        //searching node
+        if (val < root.val) {
+            root.left = delete(root.left, val);
+        } else if (val > root.val) {
+            root.right = delete(root.right, val);
+        }
+
+        //delete the node
+        else {
+            //case 1 with no child
+          if (root.left == null && root.right == null ){
+              return null;
+          }
+
+          if (root.left == null) {
+              root.right = delete(root.right, val);
+          } else if (root.right == null) {
+              root.left = delete(root.left, val);
+          }
+
+          Node temp = findMin(root.right);
+          root.val = temp.val;
+          root.right = delete(root.right, temp.val);
+        }
+
+        return root;
+    }
+
+    //find inOrder Successor
+    private Node findMin(Node node) {
+        while (node.left != null) {
+            node = node.left;
+        }
+        return node;
+    }
+
     public void inOrder(){
         inOrder(root);
         System.out.println();
     }
 
-    public void inOrder(Node root){ //
+    private void inOrder(Node root){ //
         if (root==null){      // base condition for recursive call
             return;
         }
@@ -66,7 +112,7 @@ public class BinarySearchTree {
         System.out.println();
     }
 
-    public void postOrder(Node root){
+    private void postOrder(Node root){
         if (root==null){      // base condition for recursive call
             return;
         }
@@ -79,7 +125,7 @@ public class BinarySearchTree {
         System.out.println();
     }
 
-    public void preOrder(Node root){
+    private void preOrder(Node root){
         if (root==null){      // base condition for recursive call
             return;
         }

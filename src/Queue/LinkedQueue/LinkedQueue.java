@@ -69,8 +69,8 @@ public class LinkedQueue implements Queue {
             throw new EmptyStackException();
         }
         Object temp = head.next.object;
-        head.next=head.next.next;
-        head.next.prev=head;
+        head.next = head.next.next;
+        head.next.prev = head;
         --size;
         return temp;
     }

@@ -31,8 +31,9 @@ public class LinkedStack implements Stack {
         if (size == 0) {
             throw new java.util.EmptyStackException();
         }
+
         Object oldTop = top.object;
-        top=top.next;
+        top = top.next;
         --size;
         return oldTop;
     }
@@ -47,7 +48,7 @@ public class LinkedStack implements Stack {
     }
 
     public boolean isEmpty() {
-        return size==0 ;
+        return size == 0 ;
     }
 
     public Object peekSecondLast(){
@@ -63,13 +64,13 @@ public class LinkedStack implements Stack {
         }
         Node start = top;
         Node back = null, forw;
-        while(start!=null){
-            forw=start.next;
-            start.next=back;
-            back=start;
-            start=forw;
+        while(start != null){
+            forw = start.next;
+            start.next = back;
+            back = start;
+            start = forw;
         }
-        top=back;
+        top = back;
     }
     public Object peekBottom(){
         Node cur = top ;
@@ -89,7 +90,7 @@ public class LinkedStack implements Stack {
             start=start.next;
         }
         s.append("]");
-        return s.toString();
+        return s +"";
     }
 
     public ArrayStack toArrayStack() {
@@ -107,9 +108,8 @@ public class LinkedStack implements Stack {
         if(this.size != stack.size){
             return false;
         }
-
-        while(top!=null){
-            if(a.object!=b.object){
+        while(top != null){
+            if(a.object != b.object){
                 return false;
             }
             top = top.next;
@@ -118,7 +118,7 @@ public class LinkedStack implements Stack {
     }
 
     public boolean equals(LinkedStack linkedStack, ArrayStack arrayStack){
-        if (linkedStack.size!=arrayStack.size()){
+        if (linkedStack.size != arrayStack.size()){
             return false;
         }
         for (int i=0; i<size; i++){

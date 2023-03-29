@@ -26,7 +26,7 @@ public class AVLTree {
         if(this == NIL){
             return 0;
         }
-        return 1+ left.size() + right.size();
+        return 1 + left.size() + right.size();
     }
 
     public boolean add(int key){
