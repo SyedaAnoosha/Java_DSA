@@ -128,4 +128,5 @@ public class LinkedStack implements Stack {
         }
         return true;
     }
+
 }
