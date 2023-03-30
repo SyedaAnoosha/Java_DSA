@@ -9,8 +9,6 @@ public class LinkedStackPractice {
         L.push("black");
         System.out.println(L);
 
-//        L.reverse();
-//        System.out.println(L);
 
         LinkedStack L1 = new LinkedStack();
         L1.push("red");
