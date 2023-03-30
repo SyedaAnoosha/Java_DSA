@@ -37,8 +37,8 @@ public class HashTableClass {
             int j = nextProbe(h,i);
             Entry entry = entries[j];
             if (entry == null) break;
-            if( entry == NIL) continue;
-            if( entry.key.equals(key)) return entry.value;
+            if (entry == NIL) continue;
+            if (entry.key.equals(key)) return entry.value;
         }
         return null;
     }

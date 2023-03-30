@@ -3,6 +3,8 @@ package Queue.LinkedQueue;
 import Queue.Queue;
 
 import java.util.EmptyStackException;
+import java.util.Iterator;
+
 public class LinkedQueue implements Queue {
     private Node head = new Node(null);
     //head.next = first node;
@@ -23,16 +25,14 @@ public class LinkedQueue implements Queue {
         }
     }
     public void add(Object obj) {
-        head.prev.next = new Node(obj, head, head.prev);
-        head.prev = head.prev.next;
+        if (head.prev == null) {
+            head.next = new Node(obj, head, head);
+            head.prev = head.next;
+        } else {
+            head.prev.next = new Node(obj, head, head.prev);
+            head.prev = head.prev.next;
+        }
         ++size;
-
-//        Node newNode = new Node(obj);
-//        newNode.next=head;
-//        newNode.prev=head.prev;
-//        head.prev.next=newNode;
-//        head.prev=head.prev.next;
-//        ++size;
 
     }
 
@@ -80,5 +80,54 @@ public class LinkedQueue implements Queue {
     }
     public int size() {
         return size;
+    }
+    public String toString(){
+        StringBuilder b = new StringBuilder("{");
+        Node start = head.next;
+        while(start != head){
+            if(start.next == head){
+                b.append(start.object);
+                break;
+            }
+            b.append(start.object).append(", ");
+            start = start.next;
+        }
+        return b+"}";
+    }
+
+    public Object[] toArray(){
+        Object[] arr = new Object[size];
+        int i = 0;
+        Node start = head.next;
+        while(start != head){
+            arr[i] = start.object;
+            start = start.next;
+            i++;
+        }
+        return arr;
+    }
+
+    public void reverse() {
+        Node current = head;
+        Node temp = null;
+        while (current != head) {
+            temp = current.prev;
+            current.prev = current.next;
+            current.next = temp;
+            current = current.prev;
+        }
+
+        head = temp;
+
+    }
+
+    public Object getMiddle() {
+        Node slow = head.next;
+        Node fast = head.next;
+        while (fast != head && fast.next != head) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow.object;
     }
 }
