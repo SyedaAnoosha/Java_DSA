@@ -27,12 +27,7 @@ public class BinarySearchTree {
     }      // end of insert
 
     public void search(int val){
-        if(search(root, val)){
-            System.out.println("True");
-        }
-        else{
-            System.out.println("False");
-        }
+        search(root, val);
     }
     private boolean search(Node root, int val){
         if (root==null){
