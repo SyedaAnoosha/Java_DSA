@@ -94,7 +94,6 @@ public class BinaryTree {
         }
     }
 
-
     public int size() { // number of nodes
         int size = 1;
         if (root == null) {
@@ -160,8 +159,7 @@ public class BinaryTree {
     public int numberOfLeaves(){
         if(this.root == null) return 0;
         if(isFull()){
-            int leaf = (int) Math.pow(2,this.height());
-            return leaf;
+            return (int) Math.pow(2, this.height());
         }
         System.out.println("Tree is not full");
         return -1;
