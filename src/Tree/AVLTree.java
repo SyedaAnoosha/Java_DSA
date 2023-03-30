@@ -59,6 +59,7 @@ public class AVLTree {
             }
             rotateLeft();
         }
+
         if (left.height > right.height + 1){
             if(left.right.height > left.left.height) {
                 left.rotateLeft();
